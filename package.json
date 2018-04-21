@@ -7,6 +7,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
     "react-native-paper": "^1.4.0",
     "react-navigation": "^1.5.11",
+    "react-navigation-tabs": "^0.1.0-alpha.6",
     "recompose": "^0.27.0"
   }
 }
