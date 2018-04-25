@@ -1,30 +1,35 @@
 import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import screens from './screens';
+import MyGigs from './screens/MyGigs';
+import GigsContainer from './screens/Gigs';
+import TabIcon from './components/TabIcon';
+import GigDetails from './screens/GigDetails';
 
-const LancerTabs = TabNavigator(
+const HomeStack = StackNavigator(
   {
-    Home: screens.PosterHome,
-    MyProfile: screens.MyProfile
+    Gigs: GigsContainer,
+    GigDetails
   },
-  { animationEnabled: true }
+  { navigationOptions: { header: null, tabBarIcon: TabIcon('home') } }
 );
-
-const PosterTabs = TabNavigator(
+const Tabs = TabNavigator(
   {
-    Home: screens.LancerHome,
-    MyProfile: screens.MyProfile
+    Home: HomeStack,
+    MyProfile: screens.MyProfile,
+    MyGigs: MyGigs
   },
   {
-    animationEnabled: true
+    animationEnabled: true,
+    swipeEnabled: true,
+    lazy: false
   }
 );
 
 export default StackNavigator(
   {
     onBoard: screens.OnBoard,
-    Lancers: PosterTabs,
-    Posters: LancerTabs
+    Tabs
   },
   {
     headerMode: 'none'
